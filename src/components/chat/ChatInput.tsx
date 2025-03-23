@@ -3,7 +3,9 @@ import { useChatStore } from '@/store/chatStore';
 import { Smile, Mic, Send } from 'lucide-react'; 
 import { debounce } from '@/utils/formatters';
 import { useThemeStore } from '@/store/themeStore';
-import EmojiPicker, { Theme as EmojiPickerTheme } from 'emoji-picker-react'; 
+import EmojiPicker, { Theme as EmojiPickerTheme } from 'emoji-picker-react';
+import useWebSocket from '@/hooks/use-webSocket'; 
+
 
 const MAX_CHARS = 500;
 
@@ -42,6 +44,7 @@ const ChatInput: React.FC = () => {
   const { addMessage, setTyping, editingMessage, updateMessageContent, clearEditingMessage } =
     useChatStore(); 
   const { theme } = useThemeStore();
+  const { messages, sendMessage, isTyping, isConnected } = useWebSocket();
   const [message, setMessage] = useState('');
   const [isListening, setIsListening] = useState(false); 
   const [showEmojiPicker, setShowEmojiPicker] = useState(false);
@@ -141,6 +144,7 @@ const ChatInput: React.FC = () => {
         content: message.trim(),
         sender: 'user',
       });
+      sendMessage(message.trim());
     }
   
     setMessage('');
