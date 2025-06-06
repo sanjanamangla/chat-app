@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # chat-app
 
 A new Frontend project.
@@ -17,4 +17,4 @@ This project is a starting point for a React application.
 7)jsx
 8)react context api
 I've used mock api for the responses.
-=======
+
