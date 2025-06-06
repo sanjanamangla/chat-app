@@ -18,5 +18,3 @@ This project is a starting point for a React application.
 8)react context api
 I've used mock api for the responses.
 =======
-# chat-app
->>>>>>> 4525c45cd7187328bb65c7276746ccfbc082b248
